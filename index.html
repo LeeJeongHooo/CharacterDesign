@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>캐릭터디자인</title>
+  <style>
+    /* animation */
+    @keyframes ani-headshell {
+      from {
+        scale: 110%;
+        transform: rotate(-10deg);
+      }
+
+      to {
+        transform: rotate(30deg) translate(5px);
+      }
+    }
+
+    @keyframes ani-blur {
+      to {
+        filter: blur(3px);
+      }
+    }
+
+    @keyframes ani-mouth {
+      from {
+        transform: scale(0.8) rotate(-10deg)
+      }
+
+      to {
+        transform: scale(1.2) rotate(10deg) translate(5px);
+      }
+    }
+
+    @keyframes ani-eye {
+      to {
+        transform: scaleY(0.2);
+      }
+    }
+
+    @keyframes ani-bubble {
+      to {
+        border: 1px solid #000;
+        background-color: rgb(175, 208, 243);
+        transform: translate(-50px, -50px)
+      }
+    }
+
+    /* reset  */
+    body {
+      margin: 0px;
+      padding: 0px;
+      background-color: skyblue;
+    }
+
+    *,
+    *::after,
+    *::before {
+      box-sizing: border-box;
+    }
+
+    /* layout  &  design */
+    .background {
+      margin: 200px auto;
+    }
+
+
+    .background {
+      animation: ani-blur 2s infinite alternate;
+      animation-timing-function: cubic-bezier(1, -0.57, 0.09, 0.95);
+      border: 10px solid rgb(86, 153, 179);
+      border-radius: 30%;
+      overflow: hidden;
+      position: relative;
+      background-color: rgb(99, 200, 241);
+      width: 500px;
+      height: 500px;
+    }
+
+    .headshell {
+      animation: ani-headshell 0.8s infinite alternate-reverse;
+      overflow: hidden;
+      z-index: 3;
+      position: relative;
+      transform: rotate(20deg);
+      top: 65px;
+      left: 275px;
+      background-color: rgb(88, 180, 88);
+      width: 140px;
+      height: 100px;
+      border-radius: 44%;
+      box-shadow: 0 0px 20px 0 rgba(0, 0, 0, 0.5);
+      /* border: 2px solid rgb(44, 56, 44); */
+    }
+
+    .shellhex::before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-left: 25px solid transparent;
+      border-right: 25px solid transparent;
+      border-bottom: 10px solid rgb(34, 33, 33);
+    }
+
+    .shellhex {
+      position: relative;
+      width: 50px;
+      height: 20px;
+      background: rgb(34, 33, 33);
+      opacity: 0.5;
+    }
+
+    .shellhex::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-left: 25px solid transparent;
+      border-right: 25px solid transparent;
+      border-top: 10px solid rgb(34, 33, 33);
+    }
+
+    .shellhex:nth-child(1) {
+      top: -6px;
+      left: 6px;
+    }
+
+    .shellhex:nth-child(2) {
+      top: 30px;
+      left: -14px;
+    }
+
+    .shellhex:nth-child(3) {
+      top: -6px;
+      left: 40px
+    }
+
+    .shellhex:nth-child(4) {
+      top: -65px;
+      left: 70px;
+    }
+
+    .shellhex:nth-child(5) {
+      top: -35px;
+      left: 100px;
+    }
+
+    .shellhex:nth-child(6) {
+      top: -20px;
+      left: 45px;
+    }
+
+
+    .turtle-head {
+      z-index: 2;
+      width: 400px;
+      height: 320px;
+      left: 50px;
+      bottom: 90px;
+      position: absolute;
+      background-color: rgb(131, 211, 131);
+      /* border: 2px solid #000; */
+      box-shadow: 0 -8px 15px 0 rgba(0, 0, 0, 0.3);
+      border-radius: 50%
+    }
+
+    .pink {
+      background: radial-gradient(ellipse, pink 0%, transparent 80%);
+      width: 65px;
+      height: 75px;
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    .pink.left {
+      left: 30px;
+      top: 140px;
+    }
+
+    .pink.right {
+      top: 140px;
+      right: 30px;
+    }
+
+    .turtle-neck {
+      z-index: 1;
+      background-color: rgb(131, 211, 131);
+      width: 200px;
+      height: 150px;
+      position: absolute;
+      border: 4px solid rgb(91, 69, 69);
+      bottom: -20px;
+      left: 150px;
+      border-radius: 30% 30% 0 0;
+    }
+
+    .turtle-neck-behind {
+      z-index: 4;
+      position: absolute;
+      bottom: -18px;
+      left: 98px;
+      width: 200px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: rgb(131, 211, 131);
+    }
+
+    .dot {
+      position: relative;
+      width: 60px;
+      height: 60px;
+      border-radius: 49% 51% 48% 52% / 25% 25% 75% 75%;
+      box-shadow: 0 0px 6px 0 rgba(31, 30, 30, 0.502);
+      background-color: #c9e1a5;
+    }
+
+    .dot:nth-child(1) {
+      top: -1px;
+      left: 170px;
+    }
+
+    .dot:nth-child(2) {
+      width: 50px;
+      height: 40px;
+      top: -15px;
+      left: 110px
+    }
+
+    .dot:nth-child(3) {
+      width: 40px;
+      height: 50px;
+      top: -60px;
+      left: 240px;
+    }
+
+    .eye {
+      position: absolute;
+      width: 40px;
+      height: 60px;
+      background-color: rgb(34, 33, 33);
+      border-radius: 50%;
+    }
+
+    .eye.left {
+      animation: ani-eye 2s infinite alternate-reverse;
+      top: 100px;
+      left: 85px;
+    }
+
+    .eye.right {
+      top: 100px;
+      right: 85px;
+    }
+
+    .left .inner1 {
+      position: absolute;
+      top: 10px;
+      left: 18px;
+      width: 15px;
+      height: 25px;
+      border-radius: 50%;
+      background-color: whitesmoke;
+    }
+
+    .right .inner1 {
+      position: absolute;
+      top: 10px;
+      right: 18px;
+      width: 15px;
+      height: 25px;
+      border-radius: 50%;
+      background-color: whitesmoke;
+    }
+
+    .nose {
+      position: absolute;
+      width: 100px;
+      top: 0;
+      left: 150px;
+    }
+
+    .nostrils {
+      position: relative;
+      top: 160px;
+      left: 20px;
+    }
+
+    .nostrils.left {
+      background-color: rgb(34, 33, 33);
+      right: 70px;
+      width: 10px;
+      height: 15px;
+      border-radius: 50%;
+    }
+
+    .nostrils.right {
+      top: 145px;
+      left: 70px;
+      background-color: rgb(34, 33, 33);
+      width: 10px;
+      height: 15px;
+      border-radius: 50%;
+    }
+
+    .mouth {
+      animation: ani-mouth 0.8s infinite alternate-reverse;
+      z-index: 6;
+      top: 200px;
+      left: 135px;
+      overflow: hidden;
+      border-radius: 50%;
+      position: absolute;
+      width: 120px;
+      height: 100px;
+      background-color: rgb(34, 33, 33);
+    }
+
+    .mouth-inner {
+      top: 55px;
+      left: 20px;
+      border-radius: 50%;
+      width: 80px;
+      height: 50px;
+      position: absolute;
+      background-color: rgb(242, 56, 56);
+    }
+
+
+    .bag-shell {
+      box-shadow: 0 2px 8px 0 rgba(32, 31, 31, 1.0);
+      overflow: hidden;
+      position: absolute;
+      bottom: -160px;
+      background-color: rgb(202, 152, 88);
+      right: 5px;
+      width: 450px;
+      height: 500px;
+      border: 20px solid rgba(64, 38, 38, 0.73);
+      border-radius: 40%;
+    }
+
+    .bag-shell .line {
+      position: relative;
+      height: 15px;
+      background-color: rgb(66, 63, 63);
+      box-shadow: 0 2px 8px 0 rgba(32, 31, 31, 1.0);
+    }
+
+    .bag-shell .line:nth-child(1) {
+      bottom: -120px;
+      left: 30px;
+      rotate: 30deg;
+    }
+
+    .bag-shell .line:nth-child(2) {
+      bottom: -100px;
+      left: -50px;
+      rotate: 150deg;
+    }
+
+    .bag-shell .line:nth-child(3) {
+      bottom: -200px;
+      left: -200px;
+      rotate: 35deg;
+    }
+
+    .bag-shell .line:nth-child(4) {
+      bottom: -270px;
+      left: 100px;
+      rotate: 145deg;
+    }
+
+    .bubble {
+      z-index: 8;
+      position: absolute;
+      rotate: -135deg;
+      animation: ani-bubble;
+      animation-duration: 2s;
+      animation-delay: 2s;
+      animation-iteration-count: infinite;
+      top: 250px;
+      left: 130px;
+      width: 50px;
+      height: 50px;
+      border: 1px solid transparent;
+      background-color: transparent;
+      border-radius: 50% 50% 0% 100% / 50% 100% 0% 50%;
+    }
+
+
+    /* media  */
+  </style>
+
+</head>
+
+
+<body>
+
+  <div class="background">
+    <div class="headshell">
+      <div class="shellhex"></div>
+      <div class="shellhex"></div>
+      <div class="shellhex"></div>
+      <div class="shellhex"></div>
+      <div class="shellhex"></div>
+      <div class="shellhex"></div>
+    </div>
+    <div class="bag-shell">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+    <div class="turtle-head">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="pink left"></div>
+      <div class="pink right"></div>
+      <div class="eye left">
+        <div class="inner1"></div>
+        <div class="inner2"></div>
+      </div>
+      <div class="eye right">
+        <div class="inner1"></div>
+        <div class="inner2"></div>
+      </div>
+      <div class="nose">
+        <div class="nostrils left"></div>
+        <div class="nostrils right"></div>
+      </div>
+      <div class="mouth">
+        <div class="mouth-inner"></div>
+      </div>
+      <div class="turtle-neck-behind"></div>
+    </div>
+    <div class="turtle-neck"></div>
+    <div class="bubble">
+    </div>
+  </div>
+</body>
+
+</html>
